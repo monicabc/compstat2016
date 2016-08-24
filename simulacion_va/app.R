@@ -3,20 +3,20 @@ library(shiny)
 library(shinydashboard)
 library(stats)
 ui <- dashboardPage(
-  dashboardHeader(title = "Simulacion"),skin = "purple",
+  dashboardHeader(title = "Simulación"),skin = "purple",
   
   dashboardSidebar(sidebarMenu(
-    menuItem("Simulaci?n Funci?n Inversa", tabName = "dashboard", icon = icon("dashboard"))
+    menuItem("Simulación Función Inversa", tabName = "dashboard", icon = icon("dashboard"))
   )),
   
   dashboardBody(
     fluidRow(
-      box(background = "light-blue", "Generacion de v.a con distribucion Exponencial con funci?n inversa")
+      box(background = "light-blue", "Generación de v.a con distribución Exponencial con función inversa")
     ),
     fluidRow(  
       box(
-        title = "Selecci?n de Par?metros:", status = "warning", solidHeader = TRUE,collapsible = TRUE,
-        sliderInput("slider", "Numero de simulaciones:", 100, 1000, 500),
+        title = "Selección de Parámetros:", status = "warning", solidHeader = TRUE,collapsible = TRUE,
+        sliderInput("slider", "Número de simulaciones:", 100, 1000, 500),
         sliderInput("slider2", "Lambda:", 0, 1, 0.5)),
       box(title="Histograma", background = "maroon", solidHeader = TRUE,collapsible = TRUE,
           plotOutput("plot1", height = 250))
@@ -24,12 +24,12 @@ ui <- dashboardPage(
     
     
     fluidRow(
-      box(background = "light-blue", "Generacion de v.a con distribucion Weibull con funci?n inversa")
+      box(background = "light-blue", "Generación de v.a con distribucion Weibull con función inversa")
     ),
       fluidRow(  
         box(
-          title = "Selecci?n de Par?metros:", status = "warning", solidHeader = TRUE,collapsible = TRUE,
-          sliderInput("slider3", "Numero de simulaciones:", 100, 1000, 500),
+          title = "Selección de Parámetros:", status = "warning", solidHeader = TRUE,collapsible = TRUE,
+          sliderInput("slider3", "Número de simulaciones:", 100, 1000, 500),
           sliderInput("slider4", "Alpha (escala):", 0, 1, 0.5),
           sliderInput("slider5", "Beta (forma):", 0, 5, 1)),
         box(title="Histograma", background = "maroon", solidHeader = TRUE,collapsible = TRUE,
@@ -52,7 +52,7 @@ server <- function(input, output) {
     hist(data)
   })
   output$plot2 <- renderPlot({
-    u<-runif(seq_len(input$slider3))
+    uu<-runif(seq_len(input$slider3))
     t<-Finv2(u,input$slider4,input$slider5)
     data2 <- t[seq_len(input$slider3)]
     hist(data2)
