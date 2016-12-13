@@ -1,2 +1,2 @@
 # compstat2016
-# Curso para las Maestrías en Ciencias de Datos
+# Curso para la Maestrías en Ciencias de Datos
